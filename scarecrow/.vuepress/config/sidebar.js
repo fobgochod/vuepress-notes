@@ -26,6 +26,14 @@ module.exports = [
         sidebarDepth: 2,
         children: [
             {
+                title: 'Java',
+                collapsable: false,
+                sidebarDepth: 2,
+                children: [
+                    '/zh/backend/java/java-install',
+                ]
+            },
+            {
                 title: 'Nginx',
                 collapsable: false,
                 sidebarDepth: 2,
@@ -130,6 +138,7 @@ module.exports = [
                     '/zh/mashibing/sysio/sysio4',
                     '/zh/mashibing/sysio/sysio5',
                     '/zh/mashibing/sysio/sysio6',
+                    '/zh/mashibing/sysio/sysio7',
                 ]
             },
             {

@@ -101,6 +101,23 @@ du -sh ./*
 du -sh /var/lib/mysql/*
 ```
 
+## mount
+
+```sh
+mount
+# 将 /dev/hda1 挂在 /mnt 之下
+#mount /dev/hda1 /mnt
+
+
+umount
+# 通过设备名卸载
+umount -v /dev/sda1          
+/dev/sda1 umounted  
+# 通过挂载点卸载
+umount -v /mnt/mymount/
+/tmp/diskboot.img umounted 
+```
+
 ## Yum
 
 > 全称为 Yellow dog Updater, Modified 是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器

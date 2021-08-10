@@ -1,19 +1,38 @@
 # Socket编程BIO及TCP参数
 
-lsof -p
+#### 基础命令
+
+- lsof -p
+- netstat -natp
+- tcpdump
+
+#### Server
+
+```sh
+# 编译启动服务端
+javac SocketIOPropertites.java && java SocketIOPropertites 
+
+# 网络状况
 netstat -natp
-tcpdump
 
+# 查看java进程
+lsof -op java-pid
+
+# 打开TCP监控
 tcpdump -nn -i eth0 port 9090
+```
 
+#### Client
 
+```sh
+javac SocketClient.java && java SocketClient
+```
 
-socket
-四元组 CIP CPORT + SIP SPORT
-内核级的
+socket 四元组 CIP CPORT + SIP SPORT 内核级的
 
-ifconfig
-MTU(Maximum Transmission Unit) 1500bytes 总数据包大小 1500字节
+- ifconfig
+- MTU(Maximum Transmission Unit) 1500bytes 总数据包大小 1500字节
+
 ```sh
 [root@seven ~]# ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -25,9 +44,9 @@ TX packets 34207365  bytes 21628623014 (20.1 GiB)
 TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
+- tcpdump -nn -i eth0 port 9090
+- mms 数据内容大小
 
-tcpdump -nn -i eth0 port 9090
-mms 数据内容大小
 ```sh
 [root@seven ~]# tcpdump -nn -i eth0 port 9090
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -37,19 +56,27 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 22:42:29.925693 IP 117.65.156.171.30077 > 172.19.231.255.9090: Flags [.], ack 1, win 257, length 0
 ```
 
-
-nc ip port
+nc 47.100.125.75 9090
 
 ## 网络IO 变化 模型
 
-同步
-异步
-阻塞
-非阻塞
+同步 异步 阻塞 非阻塞
+
+- 同步阻塞
+- 同步非阻塞
+- 异步非阻塞
 
 strace -ff -o out -cmd
 
+man tcp
+man ip
+man 7 ip
+man ascii
+man utf-8
+man bash
 man man
+man 2 socket
+
 
 
 ### BIO
