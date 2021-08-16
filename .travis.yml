@@ -1,5 +1,5 @@
 language: node_js
-sudo: false
+os: linux
 node_js:
   - 10
 before_install:
@@ -10,10 +10,11 @@ script:
   - npm run build
 deploy:
   - provider: pages
-    skip_cleanup: true
+    strategy: git
+    cleanup: true
     local_dir: dist
-    github_token: $gh_token
+    token: $gh_token
     keep_history: true
-    target-branch: gh-pages
+    target_branch: gh-pages
     on:
       branch: master
