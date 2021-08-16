@@ -141,3 +141,28 @@ tail -n +5 /etc/profile
 # -n 结尾内容的行数
 # -v 显示文件名
 ```
+
+## 统计
+
+```sh
+# 统计某个字符串出现的次数
+grep -o objStr filename|wc -l
+
+# 如果是多个字符串出现次数，直接用\| 链接起来
+grep -o 'objStr1\|objStr2' filename|wc -l
+
+# wc命令介绍：l表示行数; w表示英文单词数; m表示字符数
+wc [-lwm]
+
+# 统计home目录下文件/目录数(只查一级)
+# 查找文件数量
+ls -l /home | grep '^-' | wc -l
+# 查找目录数量
+ls -l /home | grep '^d' | wc -l
+
+# 统计home目录下所有文件/目录数(递归查所有, 含子子孙孙)
+# 查找文件数量
+ls -lR /home | grep '^-' | wc -l
+# 查找目录数量
+ls -lR /home | grep '^d' | wc -l
+```
