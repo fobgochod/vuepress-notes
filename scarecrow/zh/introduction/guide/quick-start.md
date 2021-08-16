@@ -161,6 +161,11 @@ systemctl start nginx.service
 systemctl restart nginx.service
 ```
 
+## Travis
+
+- [Building a JavaScript and Node.js project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs)
+- [GitHub Pages Deployment](https://docs.travis-ci.com/user/deployment/pages)
+
 ## 访问
 
 [https://fobgochod.github.io](https://fobgochod.github.io)
