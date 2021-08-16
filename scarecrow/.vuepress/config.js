@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/docs/',
+    base: '/',
     title: 'Scarecrow',
     description: '稻草人的笔记',
     head: [

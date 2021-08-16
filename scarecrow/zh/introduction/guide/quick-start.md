@@ -188,4 +188,5 @@ deploy:
 
 ## 访问
 
-[https://fobgochod.github.io](https://fobgochod.github.io)
+- [https://fobgochod.github.io](https://fobgochod.github.io)
+- [https://fobgochod.com](https://fobgochod.com)
