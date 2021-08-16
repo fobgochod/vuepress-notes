@@ -1,7 +1,6 @@
 # 如何开始
 
-::: warning 
-请确保你的 Node.js 版本 >= 8。
+::: warning 请确保你的 Node.js 版本 >= 8。
 :::
 
 ## 参考
@@ -10,9 +9,7 @@ VuePress官网的[快速上手](https://vuepress.vuejs.org/zh/guide/getting-star
 
 ## 安装
 
-
-
->创建工作文件夹seven，进入文件夹、
+> 创建工作文件夹seven，进入文件夹、
 
 ```sh
 # 快速初始化package.json
@@ -27,18 +24,18 @@ npm install -D vuepress
 README.md
 ```
 
->在 `package.json` 里加一些脚本:
+> 在 `package.json` 里加一些脚本:
 
 ```json
 {
-  "scripts": {
-    "docs:dev": "vuepress dev .",
-    "docs:build": "vuepress build ."
-  }
+    "scripts": {
+        "docs:dev": "vuepress dev .",
+        "docs:build": "vuepress build ."
+    }
 }
 ```
 
->然后就可以开始写作了:
+> 然后就可以开始写作了:
 
 ```sh
 yarn dev 
@@ -46,7 +43,7 @@ yarn dev
 npm run dev
 ```
 
->要生成静态的 HTML 文件，运行：
+> 要生成静态的 HTML 文件，运行：
 
 ```sh
 yarn build 
@@ -54,28 +51,27 @@ yarn build
 npm run build
 ```
 
-默认情况下，文件将会被生成在 .vuepress/dist，当然，你也可以通过 .vuepress/config.js 中的 dest 字段来修改，
-生成的文件可以部署到任意的静态文件服务器上，参考 [部署](#部署) 来了解更多。
+默认情况下，文件将会被生成在 .vuepress/dist，当然，你也可以通过 .vuepress/config.js 中的 dest 字段来修改， 生成的文件可以部署到任意的静态文件服务器上，参考 [部署](#部署) 来了解更多。
 
 ### 使用插件
 
->一个插件可以在以 vuepress-plugin-xxx 的形式发布到 npm，你可以这样使用它：
+> 一个插件可以在以 vuepress-plugin-xxx 的形式发布到 npm，你可以这样使用它：
 
 ```js
 module.exports = {
-  plugins: [ 'vuepress-plugin-xx' ]
+    plugins: ['vuepress-plugin-xx']
 }
 ```
 
->如果你的插件名以 vuepress-plugin- 开头，你可以使用缩写来省略这个前缀，和上面等价：
+> 如果你的插件名以 vuepress-plugin- 开头，你可以使用缩写来省略这个前缀，和上面等价：
 
 ```js
 module.exports = {
-  plugins: [ 'xxx' ]
+    plugins: ['xxx']
 }
 ```
 
->安装当前项目使用到的插件
+> 安装当前项目使用到的插件
 
 ```sh
 # 代码块复制按钮
@@ -89,7 +85,7 @@ npm install -D vuepress-plugin-go-top
 npm install -D markdown-it-task-lists
 ```
 
->`.vuepress/config.js`添加插件
+> `.vuepress/config.js`添加插件
 
 ```js
 module.exports = {
@@ -112,13 +108,13 @@ module.exports = {
 
 ## 部署
 
->生成静态的 HTML 文件
+> 生成静态的 HTML 文件
 
 ```sh
 npm run build
 ```
 
->拷贝dist目录到服务器
+> 拷贝dist目录到服务器
 
 ```sh
 # 拷贝
@@ -127,7 +123,7 @@ cd .vuepress/dist
 cd /fobgochod/frontend/vuepress/seven/dist
 ```
 
->修改`nginx.config`文件，添加server
+> 修改`nginx.config`文件，添加server
 
 ```sh
 vi /etc/nginx/nginx.config
@@ -152,7 +148,7 @@ server {
 }
 ```
 
->重启nginx
+> 重启nginx
 
 ```sh
 systemctl stop nginx.service
@@ -165,6 +161,30 @@ systemctl restart nginx.service
 
 - [Building a JavaScript and Node.js project](https://docs.travis-ci.com/user/languages/javascript-with-nodejs)
 - [GitHub Pages Deployment](https://docs.travis-ci.com/user/deployment/pages)
+
+```yaml
+language: node_js
+os: linux
+dist: xenial
+node_js:
+  - 10
+before_install:
+  - export TZ='Asia/Shanghai'
+install:
+  - npm install
+script:
+  - npm run build
+deploy:
+  - provider: pages
+    strategy: git
+    skip_cleanup: true
+    local_dir: dist
+    token: $gh_token
+    keep_history: true
+    target_branch: gh-pages
+    on:
+      branch: master
+```
 
 ## 访问
 
